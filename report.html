@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Passerelle Prep — Diagnostic Report</title>
+<style>
+  :root{--ink:#122a43;--muted:#5b6b7d;--line:#d9e0e8;--accent:#0e7c86;--accent-2:#c0871a;--bg:#fff}
+  *{box-sizing:border-box}
+  body{margin:0;background:#eef2f7;color:var(--ink);font:15px/1.55 "Public Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+  .sheet{max-width:820px;margin:24px auto;background:var(--bg);padding:40px 46px;border-radius:10px;box-shadow:0 10px 40px -20px #122a43}
+  h1,h2,h3{font-family:Fraunces,Georgia,serif;margin:0}
+  .head{display:flex;align-items:center;gap:12px;border-bottom:2px solid var(--line);padding-bottom:16px}
+  .head svg{flex:none}
+  .head .t{font-size:1.5rem;font-weight:600}
+  .head .s{margin-left:auto;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
+  h2{font-size:1.9rem;margin:22px 0 4px}
+  .sub{color:var(--muted);margin-bottom:18px}
+  .meta{display:grid;grid-template-columns:1fr 1fr;gap:10px 28px;margin:18px 0 8px}
+  .meta div{border-bottom:1px solid var(--line);padding:7px 0;font-size:.92rem}
+  .meta span{color:var(--muted);display:inline-block;min-width:118px}
+  .label{font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:26px 0 8px}
+  table{width:100%;border-collapse:collapse;margin-top:6px}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);font-size:.92rem}
+  th{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  td.n{font-variant-numeric:tabular-nums;text-align:right}
+  [contenteditable]{outline:none}
+  [contenteditable]:empty::before{content:attr(data-ph);color:#9fb0c0}
+  ul{margin:6px 0 0;padding-left:1.15em;color:var(--ink)}
+  li{margin-bottom:5px}
+  .plan{background:#f4f8f8;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:16px 18px;margin-top:8px}
+  .foot{margin-top:28px;border-top:1px solid var(--line);padding-top:14px;color:var(--muted);font-size:.82rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .hint{max-width:820px;margin:0 auto 18px;color:#5b6b7d;font-size:.85rem;text-align:center}
+  @media print{body{background:#fff}.sheet{box-shadow:none;margin:0;max-width:none;border-radius:0}.hint{display:none}}
+</style>
+</head>
+<body>
+<p class="hint">Template — duplicate this file per student, type into the highlighted fields, then Print → Save as PDF to send parents.</p>
+<div class="sheet">
+  <div class="head">
+    <svg width="30" height="20" viewBox="0 0 52 34" aria-hidden="true">
+      <path d="M2 30 Q26 2 50 30" fill="none" stroke="#0e7c86" stroke-width="3" stroke-linecap="round"/>
+      <path d="M2 30 L50 30" fill="none" stroke="#c0871a" stroke-width="3" stroke-linecap="round"/>
+      <path d="M14 30 V20 M26 30 V13 M38 30 V20" stroke="#0e7c86" stroke-width="2.4" stroke-linecap="round"/>
+    </svg>
+    <span class="t">Passerelle Prep</span>
+    <span class="s">Diagnostic Report</span>
+  </div>
+
+  <h2 contenteditable data-ph="Student name"></h2>
+  <p class="sub" contenteditable data-ph="e.g. 11th grade · target: engineering programs"></p>
+
+  <div class="meta">
+    <div><span>Test</span><b contenteditable data-ph="Digital SAT"></b></div>
+    <div><span>Diagnostic date</span><b contenteditable data-ph="—"></b></div>
+    <div><span>Target test date</span><b contenteditable data-ph="—"></b></div>
+    <div><span>Target score</span><b contenteditable data-ph="—"></b></div>
+  </div>
+
+  <div class="label">Baseline scores</div>
+  <table>
+    <thead><tr><th>Section</th><th style="text-align:right">Score</th><th style="text-align:right">Out of</th><th style="text-align:right">Target</th></tr></thead>
+    <tbody>
+      <tr><td>Reading &amp; Writing</td><td class="n" contenteditable></td><td class="n">800</td><td class="n" contenteditable></td></tr>
+      <tr><td>Math</td><td class="n" contenteditable></td><td class="n">800</td><td class="n" contenteditable></td></tr>
+      <tr><td><b>Total</b></td><td class="n" contenteditable></td><td class="n">1600</td><td class="n" contenteditable></td></tr>
+    </tbody>
+  </table>
+
+  <div class="label">What's already working</div>
+  <ul><li contenteditable data-ph="Strength the student showed in the diagnostic"></li><li contenteditable data-ph="Another strength"></li></ul>
+
+  <div class="label">Priority focus areas (where the points are)</div>
+  <ul><li contenteditable data-ph="Highest-value area to fix first"></li><li contenteditable data-ph="Second focus"></li><li contenteditable data-ph="Third focus"></li></ul>
+
+  <div class="label">Recommended plan</div>
+  <div class="plan" contenteditable data-ph="e.g. 10-session program over 8 weeks: 4 sessions Math (Module 1 accuracy, Desmos), 4 sessions R&W, 2 full adaptive practice tests. Start by [date] to be ready for the [month] sitting."></div>
+
+  <div class="foot">
+    <span contenteditable data-ph="Tutor: Andrew / Viktor"></span>
+    <span>hello@passerelleprep.com · passerelleprep.com</span>
+  </div>
+</div>
+</body>
+</html>

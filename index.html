@@ -1,0 +1,423 @@
+<title>Passerelle Prep</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+  /* Layout: centered single column (max ~68ch), slim sticky header, bands split by surface fills, bridge-arc motif in the hero. */
+  :root{
+    --bg:#ffffff; --surface:#eef2f7; --fg:#122a43; --muted:#5b6b7d;
+    --line:#d9e0e8; --accent:#0e7c86; --accent-2:#c0871a; --on-accent:#ffffff;
+    --font-display:'Fraunces',Georgia,'Times New Roman',serif;
+    --font-body:'Public Sans',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    --maxw:68ch;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --bg:#0c1521; --surface:#13202f; --fg:#eaf0f6; --muted:#93a4b7;
+    --line:#233447; --accent:#3bb7c0; --accent-2:#e0a94a; --on-accent:#06252a; color-scheme:dark;
+  }}
+  :root[data-theme="dark"]{
+    --bg:#0c1521; --surface:#13202f; --fg:#eaf0f6; --muted:#93a4b7;
+    --line:#233447; --accent:#3bb7c0; --accent-2:#e0a94a; --on-accent:#06252a; color-scheme:dark;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--fg);font-family:var(--font-body);line-height:1.6;margin:0}
+  h1,h2,h3{font-family:var(--font-display);font-weight:600;line-height:1.1;text-wrap:balance;margin:0}
+  p{margin:0}
+  a{color:var(--accent)}
+  .wrap{max-width:var(--maxw);margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  header.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:11;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:11;background:var(--bg)}
+  .bar .wrap{display:flex;align-items:center;gap:12px;padding-block:10px;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:9px;font-family:var(--font-display);font-weight:600;font-size:1.15rem;margin-right:auto}
+  .brand svg{display:block;flex:none}
+  .langs{display:flex;gap:4px;border:1px solid var(--line);border-radius:999px;padding:3px}
+  .langs button{font:inherit;font-size:.82rem;border:0;background:transparent;color:var(--muted);padding:5px 11px;border-radius:999px;cursor:pointer;letter-spacing:.02em}
+  .langs button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
+  .btn{display:inline-block;font:inherit;font-weight:600;border-radius:10px;padding:12px 20px;text-decoration:none;cursor:pointer;border:1px solid transparent;text-align:center}
+  .btn-primary{background:var(--accent);color:var(--on-accent)}
+  .btn-ghost{background:transparent;color:var(--fg);border-color:var(--line)}
+  .btn-sm{padding:8px 15px;font-size:.9rem}
+  section{padding-block:clamp(40px,7vw,72px)}
+  section.alt{background:var(--surface)}
+  .eyebrow{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:12px}
+  .hero h1{font-size:clamp(2.3rem,7vw,3.7rem);letter-spacing:-.01em}
+  .hero .tag{font-size:clamp(1.05rem,2.6vw,1.3rem);color:var(--muted);margin-top:18px;max-width:52ch}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+  .arc{margin:30px 0 4px}
+  .trust{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+  .chip{border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:.86rem;color:var(--muted);background:var(--bg)}
+  h2{font-size:clamp(1.6rem,4vw,2.1rem)}
+  .lead{color:var(--muted);margin-top:10px;max-width:54ch}
+  .grid{display:grid;gap:18px;margin-top:28px}
+  .cols-3{grid-template-columns:repeat(3,1fr)}
+  .cols-2{grid-template-columns:repeat(2,1fr)}
+  .card{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:22px;min-width:0}
+  section.alt .card{background:var(--bg)}
+  .card .step{font-family:var(--font-display);font-size:1.5rem;color:var(--accent-2);line-height:1}
+  .card h3{font-size:1.15rem;margin:10px 0 7px}
+  .card p{color:var(--muted);font-size:.95rem}
+  .price{display:grid;gap:18px;grid-template-columns:repeat(2,1fr);margin-top:28px}
+  .tier{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:26px}
+  .tier.feature{border-color:var(--accent);box-shadow:0 1px 0 var(--accent) inset,0 10px 30px -18px var(--accent)}
+  .tier .amt{font-family:var(--font-display);font-size:2.3rem;margin:6px 0}
+  .tier .amt small{font-size:.9rem;color:var(--muted);font-family:var(--font-body)}
+  .tier ul{margin:16px 0 0;padding-left:1.1em;color:var(--muted);font-size:.95rem}
+  .tier li{margin-bottom:7px}
+  .tag-mini{display:inline-block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:4px}
+  .people{display:grid;gap:18px;grid-template-columns:repeat(2,1fr);margin-top:28px}
+  .person{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .person .nm{font-family:var(--font-display);font-size:1.2rem}
+  .person .ro{color:var(--accent);font-size:.85rem;font-weight:600;margin:3px 0 10px}
+  .person p{color:var(--muted);font-size:.93rem}
+  details{border-top:1px solid var(--line);padding:16px 0}
+  details summary{cursor:pointer;font-weight:600;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  details summary::after{content:"+";float:right;color:var(--accent);font-weight:700}
+  details[open] summary::after{content:"\2013"}
+  details p{color:var(--muted);margin-top:10px;font-size:.95rem}
+  .contact{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:18px}
+  .copy{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:10px;padding:9px 13px;background:var(--bg);font:inherit;font-size:.92rem;color:var(--fg);cursor:pointer}
+  .copy b{font-weight:600}
+  footer{border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+  footer .wrap{padding-block:26px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .note{font-size:.8rem;color:var(--muted);margin-top:14px}
+  @media (max-width:640px){.cols-3,.cols-2,.price,.people{grid-template-columns:1fr}}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<header class="bar">
+  <div class="wrap">
+    <span class="brand">
+      <svg width="26" height="18" viewBox="0 0 52 34" aria-hidden="true">
+        <path d="M2 30 Q26 2 50 30" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
+        <path d="M2 30 L50 30" fill="none" stroke="var(--accent-2)" stroke-width="3" stroke-linecap="round"/>
+        <path d="M14 30 V20 M26 30 V13 M38 30 V20" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round"/>
+      </svg>
+      Passerelle Prep
+    </span>
+    <div class="langs" role="group" aria-label="Language">
+      <button data-lang="en" aria-pressed="true">EN</button>
+      <button data-lang="fr" aria-pressed="false">FR</button>
+      <button data-lang="zh" aria-pressed="false">中文</button>
+    </div>
+    <a class="btn btn-primary btn-sm book" href="#book">Book free diagnostic</a>
+  </div>
+</header>
+
+<main id="en">
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Digital SAT &amp; ACT · Los Angeles &amp; online</p>
+      <h1>The bridge to your college list.</h1>
+      <p class="tag">One-on-one SAT/ACT prep from two current USC students who scored at the top of the new digital, adaptive test — recently, not a decade ago on paper.</p>
+      <svg class="arc" width="100%" height="34" viewBox="0 0 400 34" preserveAspectRatio="none" aria-hidden="true"><path d="M0 32 Q200 2 400 32" fill="none" stroke="var(--line)" stroke-width="2"/></svg>
+      <div class="cta-row">
+        <a class="btn btn-primary book" href="#book">Start with a free diagnostic</a>
+        <a class="btn btn-ghost" href="#how">How it works</a>
+      </div>
+      <div class="trust">
+        <span class="chip">Current USC students</span>
+        <span class="chip">Top scorers, current digital format</span>
+        <span class="chip">English · Français · 中文</span>
+        <span class="chip">In person at USC or online</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="how">
+    <div class="wrap">
+      <p class="eyebrow">How it works</p>
+      <h2>Three steps, no guesswork.</h2>
+      <p class="lead">We start by finding out exactly where you stand, then build a plan around your real test date.</p>
+      <div class="grid cols-3">
+        <div class="card"><div class="step">01</div><h3>Free diagnostic</h3><p>A 30-minute digital-format diagnostic. You get a written score report showing your baseline and the sections costing you the most points.</p></div>
+        <div class="card"><div class="step">02</div><h3>A plan to your test date</h3><p>We map the weeks to your Dec, March, May or June sitting and set a target score — the adaptive format rewards getting Module 1 right.</p></div>
+        <div class="card"><div class="step">03</div><h3>Weekly 1-on-1 sessions</h3><p>Focused sessions on what actually moves your score, with progress reports your parents can follow — in their language.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">What we cover</p>
+      <h2>SAT, ACT, and the path after.</h2>
+      <div class="grid cols-2">
+        <div class="card"><h3>Digital SAT &amp; ACT</h3><p>Reading &amp; Writing, Math, and ACT Science — real strategy for the adaptive, on-screen test, including the built-in Desmos and timing.</p></div>
+        <div class="card"><h3>STEM &amp; admissions edge</h3><p>Building a standout engineering/STEM profile for US applications — from a USC rocketry and robotics team member who's lived it.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="pricing">
+    <div class="wrap">
+      <p class="eyebrow">Pricing</p>
+      <h2>Simple, and below the big centers.</h2>
+      <div class="price">
+        <div class="tier"><span class="tag-mini">Pay as you go</span><div class="amt">$70<small> / hour</small></div><ul><li>1-on-1, online or at USC</li><li>Flexible scheduling</li><li>Written notes after each session</li></ul></div>
+        <div class="tier feature"><span class="tag-mini">Best value</span><div class="amt">$999<small> / 10-session program</small></div><ul><li>Free diagnostic + custom study plan</li><li>Ten 90-minute sessions</li><li>Score reports sent to parents</li><li>Paid upfront · 24-hour cancellation</li></ul></div>
+      </div>
+      <p class="note">LA test-prep centers commonly charge $150–250/hour. We keep rates low while we build our first results — book early.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Who we are</p>
+      <h2>Two USC students who just did this.</h2>
+      <div class="people">
+        <div class="person"><div class="nm">Andrew</div><div class="ro">USC Marshall · Lead verbal · 中文</div><p>Top SAT, PSAT and ACT scores and prior tutoring experience. Leads Reading &amp; Writing and works directly with families in Mandarin.</p></div>
+        <div class="person"><div class="nm">Viktor</div><div class="ro">USC Engineering · Math &amp; science · Français</div><p>Electrical &amp; computer engineering, rocket-propulsion and underwater-robotics teams, and a published app. Leads Math and ACT Science, and works with families in French.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <p class="eyebrow">Questions</p>
+      <h2>Good to know.</h2>
+      <div style="margin-top:20px">
+        <details><summary>Is it too late to start for this year?</summary><p>No. The junior season runs now through spring — there's an SAT in December and again in March, May and June, with ACT dates in between. Most students prep two to four months before their sitting, so now is the right time to start.</p></details>
+        <details><summary>Online or in person?</summary><p>Both. We meet in person around USC, or over video anywhere. The teaching is identical.</p></details>
+        <details><summary>Do you teach in French or Chinese?</summary><p>The test is in English, so sessions are in English. We communicate with parents and send progress updates in French or Mandarin.</p></details>
+        <details><summary>How do payments work?</summary><p>Zelle, Venmo or WeChat Pay. Programs are paid upfront; single sessions are paid as you go.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="book">
+    <div class="wrap">
+      <p class="eyebrow">Get started</p>
+      <h2>Book your free 30-minute diagnostic.</h2>
+      <p class="lead">No cost, no commitment. You'll leave with a score report and a clear next step.</p>
+      <div class="cta-row"><a class="btn btn-primary book-final" href="https://calendly.com/passerelle-prep/diagnostic">Book free diagnostic</a></div>
+      <div class="contact">
+        <button class="copy" data-copy="hello@passerelleprep.com">✉ <b>hello@passerelleprep.com</b></button>
+        <button class="copy" data-copy="(323) 555-0100">✆ <b>(323) 555-0100</b></button>
+        <button class="copy" data-copy="PasserellePrep">WeChat <b>PasserellePrep</b></button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<main id="fr" hidden>
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">SAT &amp; ACT numériques · Los Angeles &amp; en ligne</p>
+      <h1>La passerelle vers vos universités.</h1>
+      <p class="tag">Préparation individuelle au SAT/ACT par deux étudiants à USC, classés parmi les meilleurs au nouveau test numérique adaptatif — récemment, pas il y a dix ans sur papier.</p>
+      <svg class="arc" width="100%" height="34" viewBox="0 0 400 34" preserveAspectRatio="none" aria-hidden="true"><path d="M0 32 Q200 2 400 32" fill="none" stroke="var(--line)" stroke-width="2"/></svg>
+      <div class="cta-row">
+        <a class="btn btn-primary book" href="#book">Commencer par un diagnostic gratuit</a>
+        <a class="btn btn-ghost" href="#how-fr">Comment ça marche</a>
+      </div>
+      <div class="trust">
+        <span class="chip">Étudiants à USC</span>
+        <span class="chip">Hauts scores, format numérique actuel</span>
+        <span class="chip">English · Français · 中文</span>
+        <span class="chip">En personne à USC ou en ligne</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="how-fr">
+    <div class="wrap">
+      <p class="eyebrow">Comment ça marche</p>
+      <h2>Trois étapes, sans approximation.</h2>
+      <p class="lead">On commence par situer précisément votre niveau, puis on bâtit un plan autour de votre date d'examen.</p>
+      <div class="grid cols-3">
+        <div class="card"><div class="step">01</div><h3>Diagnostic gratuit</h3><p>Un diagnostic de 30 minutes au format numérique. Vous recevez un bilan écrit de votre niveau de départ et des sections qui coûtent le plus de points.</p></div>
+        <div class="card"><div class="step">02</div><h3>Un plan jusqu'à l'examen</h3><p>On organise les semaines jusqu'à votre session de décembre, mars, mai ou juin, avec un score cible — le format adaptatif récompense un bon Module 1.</p></div>
+        <div class="card"><div class="step">03</div><h3>Séances individuelles</h3><p>Des séances ciblées sur ce qui fait vraiment progresser, avec des bilans que les parents suivent — dans leur langue.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Ce que nous couvrons</p>
+      <h2>SAT, ACT, et la suite.</h2>
+      <div class="grid cols-2">
+        <div class="card"><h3>SAT &amp; ACT numériques</h3><p>Lecture &amp; écriture, maths et ACT Science — une vraie stratégie pour le test adaptatif à l'écran, y compris Desmos intégré et la gestion du temps.</p></div>
+        <div class="card"><h3>Atout STEM &amp; admissions</h3><p>Construire un profil scientifique remarquable pour les candidatures américaines — par un membre des équipes de fusée et de robotique sous-marine de USC.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <p class="eyebrow">Tarifs</p>
+      <h2>Clairs, et sous les grands centres.</h2>
+      <div class="price">
+        <div class="tier"><span class="tag-mini">À la séance</span><div class="amt">70 $<small> / heure</small></div><ul><li>Individuel, en ligne ou à USC</li><li>Horaires flexibles</li><li>Notes écrites après chaque séance</li></ul></div>
+        <div class="tier feature"><span class="tag-mini">Meilleur choix</span><div class="amt">999 $<small> / programme de 10 séances</small></div><ul><li>Diagnostic gratuit + plan personnalisé</li><li>Dix séances de 90 minutes</li><li>Bilans envoyés aux parents</li><li>Payé d'avance · annulation 24 h</li></ul></div>
+      </div>
+      <p class="note">Les centres de prépa à LA facturent souvent 150 à 250 $/heure. Nos tarifs restent bas le temps de bâtir nos premiers résultats — réservez tôt.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Qui sommes-nous</p>
+      <h2>Deux étudiants à USC qui viennent de le faire.</h2>
+      <div class="people">
+        <div class="person"><div class="nm">Andrew</div><div class="ro">USC Marshall · Partie verbale · 中文</div><p>Excellents scores au SAT, PSAT et ACT et expérience de tutorat. Dirige la partie Lecture &amp; écriture et échange avec les familles en mandarin.</p></div>
+        <div class="person"><div class="nm">Viktor</div><div class="ro">Ingénierie USC · Maths &amp; sciences · Français</div><p>Génie électrique et informatique, équipes de propulsion de fusée et de robotique sous-marine, et une appli publiée. Dirige les maths et l'ACT Science, et échange avec les familles en français.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <p class="eyebrow">Questions</p>
+      <h2>Bon à savoir.</h2>
+      <div style="margin-top:20px">
+        <details><summary>Est-il trop tard pour cette année ?</summary><p>Non. La saison des premières/terminales va de maintenant au printemps — il y a un SAT en décembre, puis en mars, mai et juin, avec des dates d'ACT entre les deux. On prépare en général deux à quatre mois avant l'examen : c'est le bon moment.</p></details>
+        <details><summary>En ligne ou en personne ?</summary><p>Les deux. On se voit en personne près de USC, ou en visio partout. L'enseignement est identique.</p></details>
+        <details><summary>Enseignez-vous en français ?</summary><p>Le test est en anglais, donc les séances sont en anglais. On communique avec les parents et on envoie les bilans en français.</p></details>
+        <details><summary>Comment payer ?</summary><p>Zelle, Venmo ou WeChat Pay. Les programmes sont payés d'avance ; les séances isolées, à l'unité.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Commencer</p>
+      <h2>Réservez votre diagnostic gratuit de 30 min.</h2>
+      <p class="lead">Sans frais, sans engagement. Vous repartez avec un bilan de score et une étape claire.</p>
+      <div class="cta-row"><a class="btn btn-primary book-final" href="https://calendly.com/passerelle-prep/diagnostic">Réserver le diagnostic gratuit</a></div>
+      <div class="contact">
+        <button class="copy" data-copy="hello@passerelleprep.com">✉ <b>hello@passerelleprep.com</b></button>
+        <button class="copy" data-copy="(323) 555-0100">✆ <b>(323) 555-0100</b></button>
+        <button class="copy" data-copy="PasserellePrep">WeChat <b>PasserellePrep</b></button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<main id="zh" hidden>
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">数字版 SAT &amp; ACT · 洛杉矶与线上</p>
+      <h1>通往理想大学的桥梁。</h1>
+      <p class="tag">由两名南加州大学（USC）在读学生提供一对一 SAT/ACT 辅导，均在最新的数字自适应考试中取得高分——是近期的成绩，而非十年前的纸笔考试。</p>
+      <svg class="arc" width="100%" height="34" viewBox="0 0 400 34" preserveAspectRatio="none" aria-hidden="true"><path d="M0 32 Q200 2 400 32" fill="none" stroke="var(--line)" stroke-width="2"/></svg>
+      <div class="cta-row">
+        <a class="btn btn-primary book" href="#book">先做免费测评</a>
+        <a class="btn btn-ghost" href="#how-zh">辅导流程</a>
+      </div>
+      <div class="trust">
+        <span class="chip">USC 在读学生</span>
+        <span class="chip">现行数字考试高分</span>
+        <span class="chip">English · Français · 中文</span>
+        <span class="chip">USC 面授或线上</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="how-zh">
+    <div class="wrap">
+      <p class="eyebrow">辅导流程</p>
+      <h2>三步，清晰明确。</h2>
+      <p class="lead">先精准定位孩子的当前水平，再围绕真实考试日期制定计划。</p>
+      <div class="grid cols-3">
+        <div class="card"><div class="step">01</div><h3>免费测评</h3><p>30 分钟数字格式测评。您将获得书面成绩报告，显示起点水平以及最失分的部分。</p></div>
+        <div class="card"><div class="step">02</div><h3>规划到考试日</h3><p>按 12 月、3 月、5 月或 6 月的考试安排各周计划并设定目标分——自适应考试中第一模块尤为关键。</p></div>
+        <div class="card"><div class="step">03</div><h3>每周一对一</h3><p>专注于真正能提分的内容，并用家长的语言提供进度报告。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">辅导范围</p>
+      <h2>SAT、ACT，以及之后的路。</h2>
+      <div class="grid cols-2">
+        <div class="card"><h3>数字版 SAT &amp; ACT</h3><p>阅读与写作、数学以及 ACT 科学——针对屏幕上的自适应考试的真正策略，包括内置 Desmos 与时间管理。</p></div>
+        <div class="card"><h3>理工与申请优势</h3><p>为美本申请打造出色的工程/理工背景——由 USC 火箭推进与水下机器人团队成员亲授经验。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <p class="eyebrow">价格</p>
+      <h2>简单透明，低于大型机构。</h2>
+      <div class="price">
+        <div class="tier"><span class="tag-mini">按次付费</span><div class="amt">$70<small> / 小时</small></div><ul><li>一对一，线上或 USC 面授</li><li>时间灵活</li><li>每次课后书面笔记</li></ul></div>
+        <div class="tier feature"><span class="tag-mini">超值之选</span><div class="amt">$999<small> / 10 次课程</small></div><ul><li>免费测评 + 定制学习计划</li><li>十次 90 分钟课程</li><li>向家长发送成绩报告</li><li>预付 · 24 小时取消</li></ul></div>
+      </div>
+      <p class="note">洛杉矶备考机构通常收费 $150–250/小时。我们在积累首批成绩期间保持低价——建议尽早预约。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">关于我们</p>
+      <h2>两名刚考过的 USC 学生。</h2>
+      <div class="people">
+        <div class="person"><div class="nm">Andrew</div><div class="ro">USC Marshall · 语文主讲 · 中文</div><p>SAT、PSAT、ACT 均取得高分，并有辅导经验。主讲阅读与写作，可用中文与家长直接沟通。</p></div>
+        <div class="person"><div class="nm">Viktor</div><div class="ro">USC 工程 · 数理主讲 · Français</div><p>电气与计算机工程，火箭推进与水下机器人团队成员，已发布应用。主讲数学与 ACT 科学，可用法语与家长沟通。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <p class="eyebrow">常见问题</p>
+      <h2>您可能想了解。</h2>
+      <div style="margin-top:20px">
+        <details><summary>今年现在开始会太晚吗？</summary><p>不会。备考季从现在持续到春季——12 月有 SAT，3 月、5 月、6 月还有，其间也有 ACT。多数学生在考试前两到四个月备考，现在正是开始的好时机。</p></details>
+        <details><summary>线上还是面授？</summary><p>都可以。可在 USC 附近面授，也可在任何地方视频授课，教学内容一致。</p></details>
+        <details><summary>用中文授课吗？</summary><p>考试为英文，因此授课用英文。我们用中文与家长沟通并发送进度报告。</p></details>
+        <details><summary>如何付款？</summary><p>Zelle、Venmo 或微信支付。课程套餐预付，单次课程按次付费。</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">开始</p>
+      <h2>预约您的 30 分钟免费测评。</h2>
+      <p class="lead">免费、无需承诺。结束后您将获得成绩报告和明确的下一步。</p>
+      <div class="cta-row"><a class="btn btn-primary book-final" href="https://calendly.com/passerelle-prep/diagnostic">预约免费测评</a></div>
+      <div class="contact">
+        <button class="copy" data-copy="hello@passerelleprep.com">✉ <b>hello@passerelleprep.com</b></button>
+        <button class="copy" data-copy="(323) 555-0100">✆ <b>(323) 555-0100</b></button>
+        <button class="copy" data-copy="PasserellePrep">微信 <b>PasserellePrep</b></button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Passerelle Prep · Los Angeles</span>
+    <span>SAT · ACT · US admissions</span>
+  </div>
+</footer>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Public+Sans:wght@400;600;700&display=swap">
+<script>
+  (function(){
+    var langs=['en','fr','zh'];
+    var buttons=document.querySelectorAll('.langs button');
+    function setLang(l){
+      langs.forEach(function(x){var el=document.getElementById(x);if(el)el.hidden=(x!==l);});
+      buttons.forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.lang===l));});
+      try{localStorage.setItem('pp_lang',l);}catch(e){}
+      document.documentElement.lang=(l==='zh'?'zh-CN':l);
+    }
+    buttons.forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang);});});
+    var saved='en';try{var s=localStorage.getItem('pp_lang');if(s&&langs.indexOf(s)>-1)saved=s;}catch(e){}
+    setLang(saved);
+
+    document.querySelectorAll('.copy').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var txt=btn.dataset.copy;var old=btn.innerHTML;
+        function done(){btn.innerHTML='✓ Copied';setTimeout(function(){btn.innerHTML=old;},1400);}
+        try{
+          if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,done);}
+          else{done();}
+        }catch(e){done();}
+      });
+    });
+  })();
+</script>

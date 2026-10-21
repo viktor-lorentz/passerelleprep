@@ -70,3 +70,32 @@ Killed youth-sports (TeamSnap ~1/5 Trustpilot): loudest pain, worst GTM (network
 - Revenue: $0 / $500-mo target (then scale)
 - Diagnostics booked: 0 (2-wk bar: 5)
 - Paid packages: 0 (2-wk bar: 2)
+
+## 2026-10-21 — Session 4: Name locked + Step 1 assets built
+
+### What shipped
+- Name chosen: **Passerelle Prep** (passerelle = French for footbridge/gateway). Partner Andrew = USC Marshall.
+- Corrected positioning: no Ivy claims; lead on Andrew's top scores + both current USC students who aced the
+  CURRENT digital adaptive test + bilingual parent trust + Viktor's STEM/admissions angle.
+- Rates validated: $70/hr intro, $999/10-session package (~$66.6/hr effective). $500/mo = ~1 student. Raise to
+  $100-120 after first documented score jump. Policy: packages upfront, 24-hr cancellation.
+- Decision: niche the MARKETING (Chinese via Andrew, French + USC via Viktor), keep SERVICE open to all students.
+- Built Step 1 assets:
+  - index.html — trilingual (EN/FR/中文) landing page; published live artifact
+    https://claude.ai/artifact/5sB6uGD4kf2U53RjCsEByn (private until Shared).
+  - report.html — printable diagnostic score-report template (differentiator).
+  - outreach-posts.md — EN/FR/中文 posts + referral line + French-counselor cold email.
+  - SETUP.md — go-live steps (Calendly, placeholder swaps, free deploy via Netlify/GitHub Pages, payments).
+- French student channels researched: International School of LA (Burbank 6-12), Le Lycee Francais de LA,
+  Alliance Francaise de LA, Coucou LA, LAFA, frenchdistrict/frenchmorning classifieds, FB expat groups.
+
+### Next (founder action)
+- Create Calendly; swap placeholders (Calendly link, email, phone, WeChat, Venmo/Zelle).
+- Deploy index.html (Netlify Drop or GitHub Pages).
+- Post outreach in all 3 channels; email 2-3 French school counselors.
+- Then: build auto score-report flow / small booking polish if demand validates.
+
+### Numbers
+- Revenue: $0 / $500-mo target (then scale)
+- Diagnostics booked: 0 (2-wk bar: 5)
+- Paid packages: 0 (2-wk bar: 2)
