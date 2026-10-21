@@ -99,3 +99,34 @@ Killed youth-sports (TeamSnap ~1/5 Trustpilot): loudest pain, worst GTM (network
 - Revenue: $0 / $500-mo target (then scale)
 - Diagnostics booked: 0 (2-wk bar: 5)
 - Paid packages: 0 (2-wk bar: 2)
+
+## 2026-10-21 — Session 5: Brand, services expansion, photos, live site v3
+
+### What shipped
+- Domain passerelleprep.com registered AND on Cloudflare (nameservers active, DNS Full).
+- Cloudflare Email Routing: Enabled, DNS records Locked, 1 destination verified; still needs the
+  hello@ custom-address rule + catch-all created (founder action).
+- Logo added (AI horizontal lockup -> assets/logo.png; badge -> assets/favicon.png).
+- Profile photos processed: assets/viktor.jpg (party-crown bg — recommend plain headshot swap later),
+  assets/andrew.jpg (cropped to exclude other hiker).
+- Clarified axes: LANGUAGE = acquisition/ownership (Viktor=French+USC, Andrew=Chinese);
+  SUBJECT = delivery. Booking buttons are person+language.
+- Services expanded (market narrow, serve broad): hero = SAT/ACT; FEATURED Admissions & Essays
+  (Common App, personal + supplemental essays, activity-list/extracurricular review, school list,
+  STEM profiles); "Also offered" = French & Chinese language, AP, college math (Calc/LinAlg/DiffEq).
+- Rebuilt trilingual index.html with logo, photos, two person+language booking cards.
+  Viktor Calendly: https://calendly.com/viktor-lorentz-lfwc/30min ; Andrew = placeholder.
+- Republished live artifact v3: https://claude.ai/artifact/5sB6uGD4kf2U53RjCsEByn
+- Names: Viktor Lorentz, Andrew Li.
+
+### Next (founder action)
+- Finish Cloudflare Email Routing: hello@ rule + catch-all; test.
+- Andrew: free Calendly + 30-min event; send link to replace placeholder.
+- Deploy to passerelleprep.com via Cloudflare Pages (repo, branch ccr-d5cce6bf-13nr9p, no build,
+  output root; add custom domain in Pages).
+- Then POST outreach. Optional: plain-wall headshot for Viktor.
+
+### Numbers
+- Revenue: $0 / $500-mo target (then scale)
+- Diagnostics booked: 0 (2-wk bar: 5)
+- Paid packages: 0 (2-wk bar: 2)
