@@ -45,3 +45,28 @@ Killed youth-sports (TeamSnap ~1/5 Trustpilot): loudest pain, worst GTM (network
 - Revenue: $0 / $500-mo target
 - Validation interviews/outreach sent: 0
 - "Would pay" confirmations: 0 (bar to start building: 3)
+
+## 2026-10-21 — Session 3: Pivot to bilingual tutoring/admissions business
+
+### What shipped
+- Founder redefined goal: $500+/mo from ANY legal, positive-EV source (not necessarily a SaaS).
+- Declined Polymarket auto-invest bot (negative EV + US-barred + not a business). Gave ~20 income lanes.
+- Founder chose test-prep CONSULTING, partnering with friend Andrew (top SAT/PSAT/ACT, tutored, fluent Chinese).
+- Researched: test calendar (launching now is prime, NOT late), LA rates ($75-150/hr indie), digital/adaptive
+  SAT reality, SGV Chinese-family market, Wyzant economics.
+- Key insight: Andrew's Chinese = sales/parent-trust weapon (teaching is in English); buyer = Chinese parent.
+- Expanded to use Viktor's full stack -> business-plan.md (v2): bilingual elite prep + admissions brand,
+  two language moats (Andrew=Mandarin/SGV, Viktor=French/Francophone LA + USC), 3 revenue layers
+  (test prep -> STEM-portfolio/admissions -> software+agency), phased to wealth via leverage.
+- Wrote business-plan.md; removed earlier narrower tutoring-business-plan.md.
+
+### Next
+- Pick business name + lock package pricing.
+- Build bilingual one-page site + Calendly + free-diagnostic hook (Viktor).
+- Andrew posts SGV WeChat/RED; Viktor posts Francophone/USC/Nextdoor.
+- Validation bar: 5 free diagnostics booked + 2 paid packages in 2 weeks.
+
+### Numbers
+- Revenue: $0 / $500-mo target (then scale)
+- Diagnostics booked: 0 (2-wk bar: 5)
+- Paid packages: 0 (2-wk bar: 2)
