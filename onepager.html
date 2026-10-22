@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: Letter; margin: 0; }
+  :root{
+    --ink:#122a43; --muted:#5b6b7d; --line:#dbe2ea; --accent:#0e7c86; --accent-2:#c0871a; --bg:#ffffff; --tint:#eef4f5;
+    --serif:Georgia,'Times New Roman',serif; --sans:Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+  html,body{margin:0}
+  body{font-family:var(--sans);color:var(--ink);background:var(--bg);width:8.5in;min-height:11in;padding:0.55in 0.6in;}
+  h1,h2,h3{font-family:var(--serif);margin:0;line-height:1.08}
+  .top{display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--line);padding-bottom:12px}
+  .top img{height:40px}
+  .top .tg{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700}
+  h1{font-size:34px;margin-top:22px;color:var(--ink)}
+  .sub{font-family:var(--serif);font-style:italic;color:var(--muted);font-size:15px;margin-top:6px}
+  .lede{font-size:12.5px;color:var(--muted);margin-top:10px;max-width:6.4in;line-height:1.5}
+  .band{margin-top:16px;background:var(--accent);color:#fff;border-radius:10px;padding:12px 16px;display:flex;align-items:baseline;gap:10px}
+  .band b{font-family:var(--serif);font-size:16px}
+  .band span{font-size:11.5px;opacity:.95}
+  .svc{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:18px}
+  .svc .c{border:1px solid var(--line);border-radius:10px;padding:12px}
+  .svc h3{font-size:13px;color:var(--ink)}
+  .svc .c.feat{border-color:var(--accent);background:var(--tint)}
+  .svc p{font-size:10.5px;color:var(--muted);margin:6px 0 0;line-height:1.45}
+  .tag{display:inline-block;font-size:8.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:3px}
+  .who{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+  .p{display:flex;gap:11px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;padding:12px}
+  .p img{width:54px;height:54px;border-radius:50%;object-fit:cover;border:2px solid var(--accent);flex:none}
+  .p .nm{font-family:var(--serif);font-size:15px}
+  .p .ro{font-size:9.5px;color:var(--accent);font-weight:700;margin:2px 0 5px;letter-spacing:.02em}
+  .p .bd{font-size:10px;color:var(--muted);line-height:1.4}
+  .foot{margin-top:20px;border-top:2px solid var(--line);padding-top:14px;display:flex;align-items:center;gap:16px}
+  .foot img{width:84px;height:84px;flex:none}
+  .foot .big{font-family:var(--serif);font-size:18px}
+  .foot .u{color:var(--accent);font-weight:700}
+  .foot .cx{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.5}
+  .langs{margin-left:auto;text-align:right;font-size:10px;color:var(--muted)}
+  .langs b{display:block;font-family:var(--serif);color:var(--ink);font-size:13px}
+</style>
+</head>
+<body>
+  <div class="top">
+    <img src="assets/logo.png" alt="Passerelle Prep">
+    <span class="tg">SAT · ACT · US Admissions</span>
+  </div>
+
+  <h1>The bridge to your college list.</h1>
+  <div class="sub">La passerelle vers vos universités · 通往理想大学的桥梁</div>
+  <p class="lede">Bilingual, one-on-one SAT/ACT prep and college-admissions help from two current USC students who scored at the top of the new digital, adaptive test — and who work with families in French and Mandarin as well as English.</p>
+
+  <div class="band"><b>Free 30-minute diagnostic</b><span>+ a written score report. No cost, no commitment — book at passerelleprep.com.</span></div>
+
+  <div class="svc">
+    <div class="c"><span class="tag">Test prep</span><h3>Digital SAT &amp; ACT</h3><p>Reading &amp; Writing, Math, and ACT Science — real strategy for the adaptive on-screen test.</p></div>
+    <div class="c feat"><span class="tag">In season now</span><h3>Admissions &amp; Essays</h3><p>Common App strategy, personal &amp; supplemental essays, activity-list review, and school-list planning.</p></div>
+    <div class="c"><span class="tag">Also offered</span><h3>Subjects &amp; languages</h3><p>French &amp; Chinese · AP subjects · college math (Calculus, Linear Algebra, Differential Equations).</p></div>
+  </div>
+
+  <div class="who">
+    <div class="p"><img src="assets/viktor.jpg" alt="Viktor Lorentz"><div><div class="nm">Viktor Lorentz</div><div class="ro">USC Viterbi · native French</div><div class="bd">Electrical &amp; computer engineering, on USC's rocket and robotics teams, with top SAT/ACT scores. Teaches math, science and English; works with families in French.</div></div></div>
+    <div class="p"><img src="assets/andrew.jpg" alt="Andrew Li"><div><div class="nm">Andrew Li</div><div class="ro">USC Marshall · native Mandarin</div><div class="bd">Business administration with top SAT, PSAT and ACT scores and prior tutoring experience. Teaches math, English and essays; works with families in Mandarin.</div></div></div>
+  </div>
+
+  <div class="foot">
+    <img src="assets/qr.png" alt="passerelleprep.com QR">
+    <div>
+      <div class="big">Book your free diagnostic at <span class="u">passerelleprep.com</span></div>
+      <div class="cx">hello@passerelleprep.com · WeChat: PasserellePrep · Online or in person at USC</div>
+    </div>
+    <div class="langs"><b>English</b>Français<br>中文</div>
+  </div>
+</body>
+</html>

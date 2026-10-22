@@ -1,5 +1,6 @@
 *.md
 report.html
+onepager.html
 wrangler.toml
 .assetsignore
 .gitignore
